@@ -2,8 +2,22 @@ import { View, Image, StatusBar, Text } from 'react-native';
 import React from 'react';
 import RoundButtonComp from '../../components/RoundButtonComp';
 import FullRoundButtonComp from '../../components/FullRoundButtonComp';
+import {_signInWithGoogle} from '../../config/firebase/GoogleSignIn';
 
 export default function SignInScreen({navigation}) {
+  async function googleSignIn() {
+    try {
+      _signInWithGoogle().then((data) => {
+        if (!data) {
+          console.log("Google Sign-In failed: No Data");
+        }
+        console.log("Google Sign-In successful: ", data);
+      });
+    } catch (error) {
+      console.log("Google Sign-In failed: ", error);
+    }
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <StatusBar backgroundColor="#fff3e3" />
@@ -73,6 +87,7 @@ export default function SignInScreen({navigation}) {
             <FullRoundButtonComp
               image={require('../../assets/google-icon.png')}
               bg={'#e54545'}
+              onPress={() => googleSignIn()}
             />
           </View>
         </View>
