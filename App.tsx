@@ -1,45 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SplashScreen from './src/screens/splash';
+import { NavigationContainer } from '@react-navigation/native';
+import SignInScreen from './src/screens/signin';
+import SignUpScreen from './src/screens/signup';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+const stack = createNativeStackNavigator();
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <>
+      <NavigationContainer>
+        <stack.Navigator>
+          <stack.Screen
+            name="Splash"
+            component={SplashScreen}
+            options={{ headerShown: false }} // ลองไม่ใส่ และลองใส่ true
+          />
+          <stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            options={{ headerShown: false }} // ลองไม่ใส่ และลองใส่ true
+          />
+          <stack.Screen
+            name="SignUp"
+            component={SignUpScreen}
+            options={{ headerShown: false }}
+          />
+        </stack.Navigator>
+      </NavigationContainer>
+    </>
   );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;
