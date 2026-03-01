@@ -95,3 +95,7 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+## Firebase / Google services
+
+โปรดสร้างไฟล์การตั้งค่า Google เอง (เช่น `google-services.json` สำหรับ Android หรือ `GoogleService-Info.plist` สำหรับ iOS) แล้ววางไว้ในตำแหน่งที่เหมาะสมของโปรเจค (ตัวอย่าง: `android/app/google-services.json` สำหรับ Android). อย่าเพิ่มไฟล์เหล่านี้ลงในระบบควบคุมเวอร์ชัน (เช่น Git) — ให้เพิ่มใน `.gitignore` ด้วย.
